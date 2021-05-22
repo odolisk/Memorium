@@ -39,7 +39,7 @@
                   <span class="required">&nbsp;*</span>
                 {% endif %}
               </label>
-              <div class="col-md-7">
+              <div class="col-md-7 m-2">
                 {{ field|addclass:'form-control' }}
                 {% if field.help_text %}
                   <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
@@ -57,7 +57,7 @@
             </div> <!-- form-group row -->
           {% endfor %}
           <div class="col-md p-2 button d-flex justify-content-center">
-            <button type="submit" class="btn btn-sm btn-secondary mr-4">
+            <button type="submit" class="btn btn-sm btn-secondary me-4">
               {{ button_text }}
             </button>
             {% if template == 'login' %}
