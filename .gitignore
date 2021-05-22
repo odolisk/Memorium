@@ -148,10 +148,16 @@ dmypy.json
 # папки со статикой и медиа
 static/
 media/
-yatube/posts/static/
-yatube/media/
+memorium/posts/static/
+memorium/media/
 
 req.txt
 *.old
 
 tmp/
+
+# Text backup files
+*.bak
+
+#Database
+*.sqlite3

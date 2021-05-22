@@ -1,4 +1,4 @@
-# Yatube
+# Memorium
 
 ## Social platform for bloggers
 
