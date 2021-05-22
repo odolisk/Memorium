@@ -42,7 +42,7 @@ class Post(models.Model):
                               null=True,
                               help_text='Выберите '
                               'группу для записи')
-    image = models.ImageField(upload_to='media/',
+    image = models.ImageField(upload_to='/',
                               verbose_name='Картинка',
                               blank=True,
                               null=True,
