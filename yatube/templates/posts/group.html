@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Записи сообщества {{ group.title }}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+  <div class="row m-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="false">Записи сообщества </a>
+        </li>
+        <li>
+          <a class="nav-link active text-dark">#{{ group.title }}</a>
+        </li>
+    </ul>
+  </div>
+  {% for post in page %}
+    {% include 'includes/post_item.html' with post=post %}
+  {% endfor %}
+{% endblock %}

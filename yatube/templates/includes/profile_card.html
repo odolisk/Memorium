@@ -1,0 +1,57 @@
+<div class="col-md-3">
+  <div class="position-sticky" style="top: 7.5rem;">
+    <div class="p-4 mb-3 bg-light rounded">
+      <h4 class="fst-italic">Профиль</h4>
+      <div class="card">
+        <div class="card-body p-2">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h4 d-flex justify-content-center">
+                {{ author.get_full_name }}
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="h5 d-flex justify-content-center mb-1">
+                {% if single_post %}
+                  <a class="link-secondary" href="{% url 'posts:profile' author.username %}">@{{ author.username }}</a>
+                {% else %}
+                  @{{ author.username }}
+                {% endif %}
+              </div>
+            </li>
+            {% if user != author and user.is_authenticated %}
+              {% if not single_post %}
+                <li class="list-group-item d-flex justify-content-center">
+                  {% if follow %}
+                    <a class="btn btn-lg btn-light" 
+                      href="{% url 'posts:profile_unfollow' author.username %}" role="button"> 
+                      Отписаться 
+                    </a> 
+                  {% else %}
+                    <a class="btn btn-lg btn-warning" href="{% url 'posts:profile_follow' author.username %}" role="button">
+                      Подписаться 
+                    </a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endif %}
+          </ul>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="h6 text-muted">
+              Подписчиков: {{ author.following.count }} <br />
+              Подписан: {{ author.follower.count }}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">
+              Записей: 
+                {{ author.posts_author.count }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

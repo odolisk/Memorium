@@ -1,0 +1,51 @@
+{% load thumbnail %}
+
+<article class="blog-post border rounded overflow-hidden flex-md-row mb-4 p-3 shadow-sm position-relative">
+  <h2 class="blog-post-title">
+    {% if post.title %}
+      {{post.title}}
+    {% else %}
+      *&nbsp;*&nbsp;*&nbsp;
+    {% endif %}
+  </h2>
+  <p class="blog-post-meta">
+      {{ post.pub_date|date:'d E Y' }} <a class="link-warning" href="{% url 'posts:profile' post.author.username %}">@{{ post.author }}</a>
+      {% if post.group %}
+        в <a class="link-secondary" href="{% url 'posts:group_posts' post.group.slug %}">
+          <strong>#{{ post.group.title }}</strong>
+        </a>
+      {% endif %}
+  </p>
+  <p class="m-1">
+    {% thumbnail post.image '960x339' crop='noop' upscale=True as im %}
+      <img class="card-img" src="{{ im.url }}" />
+    {% endthumbnail %}
+  </p>
+  <p class="m-1">
+    {{ post.text|linebreaksbr }}
+  </p>
+  {% if post.comments.exists %}
+      <div class="text_muted m-2">
+        <small>Комментариев: {{ post.comments.count }}</small>
+      </div>
+  {% endif %}
+  <div>
+    <div class="btn-group">
+      {% if not single_post %}
+      <p class="m-2">
+        <a class="link-secondary" 
+          href="{% url 'posts:post' post.author.username post.id %}" role="button">
+          Добавить комментарий
+        </a>
+      </p>
+      {% endif %}
+      {% if user == post.author %}
+      <p class="m-2">
+        <a class="link-secondary" href="{% url 'posts:post_edit' post.author.username post.id %}" role="button">
+          Редактировать
+        </a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,35 @@
+<footer class="blog-footer">
+  <p class="d-flex justify-content-center">
+    <a class="link-secondary m-1" href="{% url 'about:author_url' %}">Об авторе</a>
+    <a class="link-secondary m-1" href="{% url 'about:tech_url' %}">Используемые технологии</a>
+  </p>
+  <p class="d-flex justify-content-center">
+    Memorium&nbsp;
+    <!--[if lte IE 8]>
+      <span style="
+        filter: progid:DXImageTransform.Microsoft.BasicImage( rotation=2 );
+        display: inline-block;
+      ">
+    <![endif]-->
+    <span style="
+      -webkit-transform: scaleX(-1);
+          -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+        -khtml-transform: scaleX(-1);
+          -ms-transform: scaleX(-1);
+              transform: scaleX(-1);
+      display: inline-block;
+    ">
+      &copy;
+    </span>
+    <!--[if lte IE 8]>
+      </span>
+    <![endif]--> 
+    <span>
+      {{ year }} Все права принадлежат вечности.
+    </span>
+  </p>
+  <p>
+    <a class="link-secondary" href="#">наверх</a>
+  </p>
+</footer>

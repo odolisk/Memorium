@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Профиль пользователя {{ author.username }}{% endblock %}
+{% block content %}
+  <div class="row m-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="false">Записи пользователя </a>
+        </li>
+        <li>
+          <a class="nav-link active text-dark">@{{ author.username }}</a>
+        </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      {% for post in page %}
+        {% include 'includes/post_item.html' with post=post %}
+      {% endfor %}
+    </div>
+    {% include 'includes/profile_card.html' with single_post=False %}
+  </div>
+{% endblock%}
