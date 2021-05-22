@@ -146,10 +146,9 @@ dmypy.json
 .mypy_cache
 
 # папки со статикой и медиа
-static/
-media/
-memorium/posts/static/
-memorium/media/
+# static/
+# media/
+posts/static/
 
 req.txt
 *.old
