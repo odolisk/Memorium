@@ -1,1 +1,1 @@
-web: gunicorn memorium.wsgi --log-file -
+web: gunicorn memorium.memorium.wsgi --log-file -
