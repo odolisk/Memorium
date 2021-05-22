@@ -29,10 +29,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ist5+)u7ct-wu*)x7p2t3bhbp+#fl_
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [
-    'localhost',
+    'odolisk-memorium.herokuapp.com/',
     '127.0.0.1',
     '[::1]',
-    'testserver',
 ]
 
 
