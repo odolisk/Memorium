@@ -146,17 +146,10 @@ dmypy.json
 .mypy_cache
 
 # папки со статикой и медиа
-# static/
-# media/
-posts/static/
+static/
+media/
 
 req.txt
 *.old
 
 tmp/
-
-# Text backup files
-*.bak
-
-#Database
-*.sqlite3
