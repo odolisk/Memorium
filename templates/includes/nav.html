@@ -1,23 +1,43 @@
-<nav class="navbar navbar-expand-lg fixed-top bg-white">
-  {% if user.is_authenticated %}
-    <div class="col-4 d-flex justify-content-start align-items-center">
-      Пользователь:&nbsp;<a class="btn btn-sm btn-outline-warning text-secondary" href="{% url 'posts:profile' username=user.username %}">@{{ user.username }}</a>
-    </div>
-    <div class="col-4 d-flex justify-content-center align-items-center">
-      <a class="blog-header-logo text-dark" href="{% url 'posts:index' %}">Memorium</a>
-    </div>
-    <div class="col-4 d-flex justify-content-end align-items-center">
-      <a class="btn btn-sm btn-secondary mr-1" href="{% url 'posts:new_post' %}">Новая запись</a>
-      <a class="btn btn-sm btn-outline-secondary mr-1" href="{% url 'password_change' %}">Изменить пароль</a>
-      <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}">Выйти</a>
-    </div>
-  {% else %}
-    <div class="col-4 offset-md-4 d-flex justify-content-center align-items-center">
-      <a class="blog-header-logo text-dark" href="{% url 'posts:index' %}">Memorium</a>
-    </div>
-    <div class="col-4 d-flex justify-content-end align-items-center">
-      <a class="btn btn-sm btn-outline-secondary mr-1" href="{% url 'login' %}">Войти</a>
-      <a class="btn btn-sm btn-outline-secondary mr-1" href="{% url 'signup' %}">Регистрация</a>
-    </div>
-  {% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border rounded shadow-sm">
+  <div class="col-md-4 d-flex justify-content-center align-items-center">
+    Пользователь:&nbsp;
+    {% if user.is_authenticated %}
+      <a class="btn btn-sm btn-outline-warning text-secondary" href="{% url 'posts:profile' username=user.username %}">@{{ user.username }}</a>
+    {% else %}
+      <a class="btn btn-sm btn-outline-light text-secondary">Аноним</a>
+    {% endif %}
+  </div>
+  <div class="col-md-4 d-flex justify-content-center align-items-center">
+    <a class="blog-header-logo text-dark" href="{% url 'posts:index' %}">Memorium</a>
+  </div>
+  <div class="col-md-1 d-flex justify-content-center align-items-center">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-expanded="true">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'posts:new_post' %}">Новая запись</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="{% url 'password_change' %}">Изменить пароль</a>
+        </li> {% endcomment %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+        </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Войти</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Регистрация</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div> <!-- toggler-->
+  </div> <!-- col -->
 </nav>
