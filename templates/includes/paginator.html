@@ -2,20 +2,20 @@
   <nav class="blog-pagination d-flex justify-content-center align-middle" aria-label="Pagination">
     {% if page.number != 1 %}
       <a class="btn btn-outline-dark m-1 pb-2" href="?page={{ 1 }}">
-        First
+        &#10094;&#10094;
       </a>
     {% else %}
       <a class="btn btn-outline-secondary disabled m-1 pb-2" href="#" tabindex="-1" aria-disabled="true">
-        First
+        &#10094;&#10094;
       </a>
     {% endif %}
     {% if page.has_previous %}
       <a class="btn btn-outline-dark m-1 pb-2" href="?page={{ page.previous_page_number }}">
-        Previous
+        &#10094;
       </a>
     {% else %}
       <a class="btn btn-outline-secondary disabled m-1 pb-2" href="#" tabindex="-1" aria-disabled="true">
-        Previous
+        &#10094;
       </a>
     {% endif %}
       <a class="btn btn-outline-warning text-secondary disabled m-1 pb-2" tabindex="-1" aria-disabled="true">
@@ -23,20 +23,20 @@
       </a>
     {% if page.has_next %}
       <a class="btn btn-outline-dark m-1 pb-2" href="?page={{ page.next_page_number }}">
-        Next
+        &#10095;
       </a>
     {% else %}
       <a class="btn btn-outline-secondary disabled m-1 pb-2" href="#" tabindex="-1" aria-disabled="true">
-        Next
+        &#10095;
       </a>
     {% endif %}
     {% if page.number != page.paginator.num_pages %}
       <a class="btn btn-outline-dark m-1 pb-2" href="?page={{ page.paginator.num_pages }}">
-        Last
+        &#10095;&#10095;
       </a>
     {% else %}
       <a class="btn btn-outline-secondary disabled m-1 pb-2" href="#" tabindex="-1" aria-disabled="true">
-        Last
+        &#10095;&#10095;
       </a>
     {% endif %}
   </nav>
